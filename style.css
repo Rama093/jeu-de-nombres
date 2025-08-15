@@ -1,0 +1,172 @@
+
+
+#jeu {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    
+  }
+  
+
+  #info {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+
+  #joueurActuel {
+    font-weight: bold;
+    color: #2563eb; /* joueur 1 par défaut bleu */
+  }
+  
+  /* Score */
+  #scoreJoueur1 {
+    color: #60a5fa;
+    font-weight: bold;
+  }
+  
+  #scoreJoueur2 {
+    color: #f87171;
+    font-weight: bold;
+  }
+  
+
+  #zoneNombres {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 75vh;
+    border: 2px dashed #ccc;
+    margin: 0 auto 20px;
+    background-color: #fefefe;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+
+  .nombre {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f4f6;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #ccc;
+    transition: transform 0.1s, background-color 0.3s;
+  }
+  
+  .nombre:active {
+    transform: scale(0.95);
+  }
+  
+  /* Nombre déjà pris */
+  .nombre.taken {
+    color: white;
+  }
+
+  /* Effet fade-out pour nombre déjà pris */
+
+  
+  @keyframes disparaître {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.5); }
+  }
+  
+  
+  #controle {
+    margin-top: 10px;
+  }
+  
+  #controle button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  #controle button:hover {
+    background-color: #e2e8f0;
+  }
+  
+  #controle select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+
+  /* Popup central pour le succès fin du jeu */
+#popupFin {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #16a34a; /* vert succès */
+    color: white;
+    padding: 30px 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  /* Classe pour afficher le popup */
+  #popupFin.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  #popupFin button {
+    margin-top: 15px;
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+    color: #16a34a;
+    font-weight: bold;
+  }
+  
+  #popupFin button:hover {
+    background-color: #d1fae5;
+  }
+  
+  
+  
+
+  /*  mobile */
+  @media (max-width: 768px) {
+    #zoneNombres {
+      height: 60vh;
+    }
+    
+    .nombre {
+      width: 40px;
+      height: 40px;
+      font-size: 14px;
+    }
+    
+    #info, #controle {
+      font-size: 16px;
+    }
+    
+    #controle button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
+  
